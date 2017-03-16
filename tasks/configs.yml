@@ -4,13 +4,13 @@
   become: yes
   action:
     module: mount
-    boot: "{{ item.boot | default(ommit) }}"
-    dump: "{{ item.dump | default(ommit) }}"
-    fstab: "{{ item.fstab | default(ommit) }}"
+    boot: "{{ item.boot | default(omit) }}"
+    dump: "{{ item.dump | default(omit) }}"
+    fstab: "{{ item.fstab | default(omit) }}"
     fstype: "{{ item.fstype | default(nfs_default_fstype) }}"
-    opts: "{{ item.opts | default(ommit) }}"
-    passno: "{{ item.passno | default(ommit) }}"
+    opts: "{{ item.opts | default(omit) }}"
+    passno: "{{ item.passno | default(omit) }}"
     path: "{{ item.path | item.name }}"
-    src: "{{ item.src | default(ommit) }}"
+    src: "{{ item.src | default(omit) }}"
     state: "{{ item.state }}"
   with_items: "{{ nfs_mounts | default([]) }}"
