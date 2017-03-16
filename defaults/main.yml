@@ -1,0 +1,8 @@
+---
+
+nfs_default_fstype: nfs
+
+nfs_pkgs:
+  - nfs-commons
+
+nfs_mounts: []

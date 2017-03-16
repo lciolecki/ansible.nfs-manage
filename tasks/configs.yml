@@ -1,0 +1,16 @@
+---
+
+- name: Configure NFS mounts
+  become: yes
+  action:
+    module: mount
+    boot: "{{ item.boot | default(ommit) }}"
+    dump: "{{ item.dump | default(ommit) }}"
+    fstab: "{{ item.fstab | default(ommit) }}"
+    fstype: "{{ item.fstype | default(nfs_default_fstype) }}"
+    opts: "{{ item.opts | default(ommit) }}"
+    passno: "{{ item.passno | default(ommit) }}"
+    path: "{{ item.path | item.name }}"
+    src: "{{ item.src | default(ommit) }}"
+    state: "{{ item.state }}"
+  with_items: "{{ nfs_mounts | default([]) }}"

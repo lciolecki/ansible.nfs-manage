@@ -1,0 +1,7 @@
+---
+
+- include: install.yml
+  tags: [nfs, nfs.install]
+
+- include: configs.yml
+  tags: [nfs, nfs.configs]
